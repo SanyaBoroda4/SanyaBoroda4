@@ -1,46 +1,90 @@
-<div align="center">
-
-<h1>Alex Sorokin</h1>
-
-<p><b>AI Engineer</b> · production LLM systems: agents, evals, RAG and MCP</p>
-
-<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=500&size=18&duration=3200&pause=900&color=2F9FB4&center=true&vCenter=true&width=620&lines=Claude+agents+behind+deterministic+guardrails;RAG+%2B+text-to-SQL%2C+measured+on+golden+sets;MCP+servers+that+open+legacy+systems+to+AI;Voice+agents+wired+into+a+live+CRM" alt="What I build" />
-
-<p>
-<a href="https://www.linkedin.com/in/alex-sorokin-ai-engineer/"><img src="https://img.shields.io/badge/LinkedIn-alex--sorokin--ai--engineer-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-<img src="https://img.shields.io/badge/Charleston%2C%20SC-remote%20or%20hybrid-1f2937?style=flat-square" alt="Location" />
+<p align="center">
+  <img src="assets/banner.svg" width="100%" alt="Alex Sorokin — AI Engineer · agents, evals, RAG and MCP" />
 </p>
 
-</div>
+<p align="center">
+  <a href="https://www.linkedin.com/in/alex-sorokin-ai-engineer/"><img src="https://img.shields.io/badge/LinkedIn-connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="#in-production"><img src="https://img.shields.io/badge/systems-in%20production-10b981?style=for-the-badge" alt="Systems in production" /></a>
+  <a href="#architecture"><img src="https://img.shields.io/badge/architecture-diagram-8b5cf6?style=for-the-badge" alt="Architecture" /></a>
+</p>
 
----
+<p align="center">
+  <img src="assets/metrics.svg" width="100%" alt="77/87 blind backtest · 75/82 RAG golden set · 10x faster SQL p95 · 2,600+ automated tests" />
+</p>
 
-### About
+I build AI systems that do real work in a business and run them in production: a Claude agent that records customer payments, a RAG assistant over eight years of company data, a voice receptionist on a live phone line, and the integration layer that opens a closed CRM to all of them.
 
-I build AI systems that do real work in a business and run them in production: a Claude agent that records customer payments, a RAG assistant over eight years of company data, a voice receptionist on a live phone line, and the integration layer that makes a closed CRM usable by all of them.
+Every system is evaluated on real historical data before launch, and every write to a system of record passes a deterministic check and, where it matters, a human. I set the requirements, guardrails, evals and go/no-go calls and direct the design; Claude Code writes the code to my specs and tests.
 
-Every system is evaluated on real historical data before launch, and every write to a system of record goes through a deterministic check and, where it matters, a human. I set the requirements, guardrails, evals and go/no-go calls and direct the design; Claude Code writes the code to my specs and tests.
-
-### In production
+## In production
 
 | System | What it does | Measured |
 |---|---|---|
-| **Payments agent** · Claude Managed Agents, 54 MCP tools | Matches check photos to the right job and invoice; a deterministic gate writes only on proof or a manager's "yes" | Blind backtest on 87 past payments: 77 correct, 9 escalated, 1 wrong |
-| **RAG over 8 years of CRM data** · [emg-rag-public](https://github.com/SanyaBoroda4/emg-rag-public) | Hybrid keyword + vector search with reranking, validated read-only text-to-SQL, cited answers | 75 / 82 on a hand-verified golden set · recall@10 0.28 → 0.82 · SQL p95 1.96 s → 0.20 s |
-| **AI voice receptionist** · Retell, Twilio, n8n | Recognizes callers from the CRM before the first word, qualifies leads, logs every call back to the CRM | Latency 1.7–2.3 s → ~1.4 s median |
-| **CRM gateway** · [moraware-bridge](https://github.com/SanyaBoroda4/moraware-bridge) | C#/.NET Web API over a closed vendor SDK that has no public API | 95 routes · 230 tests |
-| **MCP server** · [emg-mcp-portfolio](https://github.com/SanyaBoroda4/emg-mcp-portfolio) | 40 tools that give Claude the CRM; dry-run writes, READ-ONLY reads | 40 tools · tests in CI |
-| **Ops console** · [emg-console-portfolio](https://github.com/SanyaBoroda4/emg-console-portfolio) | Mobile PWA where staff act on AI-read payments and slab scans via push decision cards | 105 tests gate every deploy |
-| **Thrift Agent** · [thrift-agent](https://github.com/SanyaBoroda4/thrift-agent) | Phone photos to live listings on Poshmark, Depop and Vinted with a multi-model pipeline | ~2,100 tests · 3-OS CI |
+| **Payments agent**<br/><sub>Claude Managed Agents · 54 MCP tools</sub> | Matches check photos to the right job and invoice; a deterministic gate writes only on proof or a manager's "yes" | Blind backtest on 87 past payments: **77 correct, 9 escalated, 1 wrong** |
+| **RAG over 8 years of CRM data**<br/><sub>[emg-rag-public ↗](https://github.com/SanyaBoroda4/emg-rag-public)</sub> | Routed text-to-SQL (validated, read-only) + hybrid BM25/vector search with reranking; cited answers | **75 / 82** on a hand-verified golden set · recall@10 **0.28 → 0.82** · SQL p95 **1.96 s → 0.20 s** |
+| **AI voice receptionist**<br/><sub>Retell · Twilio · n8n</sub> | Recognizes callers from the CRM before the first word, qualifies leads, logs every call back to the CRM | Latency **1.7–2.3 s → ~1.4 s** median |
+| **CRM gateway**<br/><sub>[moraware-bridge ↗](https://github.com/SanyaBoroda4/moraware-bridge)</sub> | C#/.NET Web API over a closed vendor SDK with no public API | **95 routes · 230 tests** |
+| **MCP server**<br/><sub>[emg-mcp-portfolio ↗](https://github.com/SanyaBoroda4/emg-mcp-portfolio)</sub> | Gives Claude the CRM: dry-run writes, READ-ONLY reads, explicit "not readable" map | **40 tools** · tests in CI |
+| **Ops console**<br/><sub>[emg-console-portfolio ↗](https://github.com/SanyaBoroda4/emg-console-portfolio)</sub> | Mobile PWA where staff act on AI-read payments and slab scans through push decision cards | **105 tests** gate every deploy |
+| **Thrift Agent**<br/><sub>[thrift-agent ↗](https://github.com/SanyaBoroda4/thrift-agent)</sub> | Phone photos → live listings on Poshmark, Depop and Vinted; Opus groups, Sonnet extracts, Haiku checks | **~2,100 tests** · 3-OS CI |
 
-### How I work
+## Architecture
+
+```mermaid
+flowchart LR
+  call([Phone call]) --> voice[Voice agent<br/>Retell + Twilio]
+  photo([Check photo]) --> agent[Claude agent<br/>Managed Agents]
+  ask([Office question]) --> rag{RAG router}
+
+  voice --> n8n[n8n workflows]
+  agent -- read tools --> mcp[MCP server<br/>40 tools]
+  agent --> gate{{Deterministic gate}}
+  gate -- proof or manager's yes --> qb[(QuickBooks)]
+
+  mcp --> bridge[C#/.NET gateway<br/>95 routes]
+  n8n --> bridge
+  bridge --> crm[(CRM<br/>closed SDK)]
+  n8n <-. decision cards .-> console[Ops console PWA]
+
+  rag --> sql[Text-to-SQL<br/>validated · read-only]
+  rag --> hyb[BM25 + vectors<br/>+ rerank]
+  sql --> pg[(Postgres + pgvector)]
+  hyb --> pg
+  bridge -. export .-> pg
+  rag -. traces .-> lf[Langfuse]
+```
+
+## Engineering notes
+
+<details>
+<summary><b>An agent that can't write without proof</b> · payments</summary>
+<br/>
+
+The agent investigates each payment like a person would, through 54 tools, and proposes a match in plain language. It never writes directly: a deterministic gate re-checks the evidence in code and records the payment only on proof or a manager's explicit "yes". Before launch it was run blind against 87 historical payments (77 correct, 9 escalated to a human, 1 wrong), and the rollout was gated by 1,635 automated checks and 17 adversarial reviews.
+</details>
+
+<details>
+<summary><b>The slow query that wasn't where everyone looked</b> · RAG</summary>
+<br/>
+
+Median SQL time was 0.03 s; p95 was 1.96 s. Per-call tracing showed every slow call hit one view. `EXPLAIN ANALYZE` named a correlated regex subquery running 3,399 times, not the `ILIKE` everyone suspected. A 184 kB partial index plus skipping a redundant re-count took p95 to 0.20 s, with output verified byte-identical by checksum.
+</details>
+
+<details>
+<summary><b>Why fusion alone made ranking worse</b> · retrieval</summary>
+<br/>
+
+Each retrieval layer was measured against the same golden set. Reciprocal-rank fusion raised recall@10 from 0.28 (vectors alone) to 0.50, but MRR fell from 0.33 to 0.20: fusion finds more and orders it worse. Adding a reranker took recall@10 to 0.82 and MRR to 0.66. Measuring recall alone would have hidden the regression.
+</details>
+
+## How I work
 
 - **Evals before launch.** Golden sets, blind historical backtests, a judge model that differs from the generator, known failures kept visible.
 - **Deterministic gates on writes.** Models propose; code checks; people approve what matters.
-- **Measure, don't assert.** Every number above comes from a command or a run file in the linked repo.
-- **Spec-driven work with coding agents.** Written work orders with verification steps, scoped permissions, and a required "what got worse" section.
+- **Measure, don't assert.** Every number on this page comes from a command or a run file in the linked repo.
+- **Spec-driven work with coding agents.** Written work orders with verification steps, scoped permissions and a required "what got worse" section.
 
-### Stack
+## Stack
 
 <p>
 <img src="https://img.shields.io/badge/Claude-191919?style=flat-square&logo=anthropic&logoColor=white" alt="Claude" />
@@ -61,8 +105,4 @@ Every system is evaluated on real historical data before launch, and every write
 <img src="https://img.shields.io/badge/Retell%20AI-191919?style=flat-square" alt="Retell AI" />
 </p>
 
----
-
-<div align="center">
-<sub>Open to AI Engineer · AI Solutions / Deployment Engineer roles — remote, or hybrid in Charleston, SC.</sub>
-</div>
+<p align="center"><sub>Open to AI Engineer · AI Solutions / Deployment Engineer roles — remote, or hybrid in Charleston, SC.</sub></p>
