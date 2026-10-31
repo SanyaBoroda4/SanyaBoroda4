@@ -27,6 +27,7 @@ Every system is evaluated on real historical data before launch, and every write
 | **MCP server**<br/><sub>[emg-mcp-portfolio ↗](https://github.com/SanyaBoroda4/emg-mcp-portfolio)</sub> | Gives Claude the CRM: dry-run writes, READ-ONLY reads, explicit "not readable" map | **40 tools** · tests in CI |
 | **Ops console**<br/><sub>[emg-console-portfolio ↗](https://github.com/SanyaBoroda4/emg-console-portfolio)</sub> | Mobile PWA where staff act on AI-read payments and slab scans through push decision cards | **105 tests** gate every deploy |
 | **Thrift Agent**<br/><sub>[thrift-agent ↗](https://github.com/SanyaBoroda4/thrift-agent)</sub> | Phone photos → live listings on Poshmark, Depop and Vinted; Opus groups, Sonnet extracts, Haiku checks | **~2,100 tests** · 3-OS CI |
+| **Proof of Turnover** · Hackathon 2026<br/><sub>[proof-of-turnover ↗](https://github.com/SanyaBoroda4/proof-of-turnover)</sub> | Proves vacation-rental cleanings from the cleaner's photos and voice notes: an item counts as done only when two independent vision checks and SAM 3.1 agree on one photo; gaps become re-photo requests in her language | **186 tests** · Meta models only (Muse Spark, SAM 3.1, voice) |
 
 ## Architecture
 
