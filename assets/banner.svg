@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="Alex Sorokin — AI Engineer">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#0d1117"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.82" cy="0.25" r="0.55">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.62" cy="0.95" r="0.5">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#a5f3fc"/>
+    </linearGradient>
+    <linearGradient id="edge" gradientUnits="userSpaceOnUse" x1="820" y1="0" x2="1090" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.045" stroke-width="1"/>
+    </pattern>
+    <clipPath id="r"><rect width="1200" height="320" rx="18"/></clipPath>
+    <style>
+      .t{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif}
+      .m{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace}
+      .flow{stroke-dasharray:6 10;animation:dash 1.6s linear infinite}
+      .flow2{stroke-dasharray:6 10;animation:dash 2.2s linear infinite}
+      @keyframes dash{to{stroke-dashoffset:-32}}
+      .pulse{animation:pulse 2s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+      @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+      .caret{animation:blink 1.1s steps(1) infinite}
+      @keyframes blink{50%{opacity:0}}
+    </style>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="1200" height="320" fill="url(#bg)"/>
+    <rect width="1200" height="320" fill="url(#grid)"/>
+    <rect width="1200" height="320" fill="url(#glow1)"/>
+    <rect width="1200" height="320" fill="url(#glow2)"/>
+
+    <!-- status pill -->
+    <g transform="translate(64,58)">
+      <rect width="232" height="30" rx="15" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-opacity="0.45"/>
+      <circle class="pulse" cx="18" cy="15" r="5" fill="#34d399"/>
+      <text class="m" x="32" y="20" font-size="13" fill="#a7f3d0">6 systems in production</text>
+    </g>
+
+    <text class="t" x="62" y="148" font-size="64" font-weight="700" fill="url(#title)" letter-spacing="-1.5">Alex Sorokin</text>
+    <text class="t" x="64" y="192" font-size="24" font-weight="500" fill="#cbd5e1">AI Engineer · agents, evals, RAG and MCP</text>
+    <text class="m" x="64" y="240" font-size="15" fill="#67e8f9">$</text>
+    <text class="m" x="82" y="240" font-size="15" fill="#94a3b8">ship --evals-first --gate-every-write --human-in-the-loop</text>
+    <rect class="caret" x="622" y="228" width="9" height="16" fill="#67e8f9"/>
+    <text class="t" x="64" y="282" font-size="14" fill="#64748b">Charleston, SC · open to remote or hybrid</text>
+
+    <!-- system schematic -->
+    <g class="m" font-size="12">
+      <path class="flow"  d="M820 92 C 880 92, 880 160, 940 160" fill="none" stroke="url(#edge)" stroke-width="2"/>
+      <path class="flow2" d="M820 160 L 940 160" fill="none" stroke="url(#edge)" stroke-width="2"/>
+      <path class="flow"  d="M820 228 C 880 228, 880 160, 940 160" fill="none" stroke="url(#edge)" stroke-width="2"/>
+      <path class="flow2" d="M1040 160 L 1088 160" fill="none" stroke="url(#edge)" stroke-width="2"/>
+
+      <rect x="855" y="150" width="50" height="20" rx="6" fill="#0b1020" stroke="#22d3ee" stroke-opacity="0.6"/><text x="880" y="164" text-anchor="middle" fill="#a5f3fc" font-size="11">MCP</text>
+      <g transform="translate(700,74)"><rect width="120" height="36" rx="10" fill="#0f172a" stroke="#334155"/><text x="60" y="23" text-anchor="middle" fill="#e2e8f0">voice agent</text></g>
+      <g transform="translate(700,142)"><rect width="120" height="36" rx="10" fill="#0f172a" stroke="#334155"/><text x="60" y="23" text-anchor="middle" fill="#e2e8f0">claude agent</text></g>
+      <g transform="translate(700,210)"><rect width="120" height="36" rx="10" fill="#0f172a" stroke="#334155"/><text x="60" y="23" text-anchor="middle" fill="#e2e8f0">rag + sql</text></g>
+
+      <g transform="translate(940,138)"><rect width="100" height="44" rx="12" fill="#111827" stroke="#22d3ee" stroke-opacity="0.7"/><text x="50" y="20" text-anchor="middle" fill="#a5f3fc">gateway</text><text x="50" y="35" text-anchor="middle" fill="#64748b" font-size="10">95 routes</text></g>
+      <g transform="translate(1088,138)"><rect width="76" height="44" rx="12" fill="#111827" stroke="#a78bfa" stroke-opacity="0.7"/><text x="38" y="20" text-anchor="middle" fill="#ddd6fe">CRM</text><text x="38" y="35" text-anchor="middle" fill="#64748b" font-size="10">closed SDK</text></g>
+    </g>
+  </g>
+  <rect x="0.5" y="0.5" width="1199" height="319" rx="18" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
+</svg>
